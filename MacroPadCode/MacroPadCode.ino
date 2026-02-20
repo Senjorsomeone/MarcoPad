@@ -3,13 +3,13 @@
 // ---------------------------------
 // Key definitions
 #define BUTTON_KEY1 KEY_F13
-#define BUTTON_KEY2 32
-#define BUTTON_KEY3 KEY_F15
+#define BUTTON_KEY2 KEY_F14
+#define BUTTON_KEY3 119
 #define BUTTON_KEY4 KEY_F16
 #define BUTTON_KEY5 KEY_F17
-#define BUTTON_KEY6 KEY_F18
-#define BUTTON_KEY7 KEY_F19
-#define BUTTON_KEY8 KEY_F20
+#define BUTTON_KEY6 97
+#define BUTTON_KEY7 115
+#define BUTTON_KEY8 100
 #define BUTTON_KEY9 KEY_F21
 #define BUTTON_KEY10 KEY_F22
 #define BUTTON_KEY11 KEY_F23
@@ -32,6 +32,7 @@
 // ---------------------------------
 
 #include "Keyboard.h"
+#include "Mouse.h"
 bool recording = false;
 uint8_t follow[500] = {};
 int bounce[500] = {};
@@ -67,6 +68,16 @@ class button {
     if(k == KEY_F13){
       Keyboard.print("System.out.print();");
       return;
+    }
+    else if(k == KEY_F14){
+      Mouse.press(MOUSE_LEFT);
+      delay(50);
+      Mouse.release(MOUSE_LEFT);
+    }
+    else if(k == KEY_F16){
+      Mouse.press(MOUSE_RIGHT);
+      delay(50);
+      Mouse.release(MOUSE_RIGHT);
     }
     else if(k == KEY_F24){
       if(!recording){
